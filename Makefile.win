@@ -1,0 +1,40 @@
+# Project: Proyecto1
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = MainPolymorphism.o Package.o Shipping.o Envelope.o Package.o
+LINKOBJ  = MainPolymorphism.o Package.o Shipping.o Envelope.o Package.o
+LIBS     = -L"C:/Users/User/Documents/Curriculum vitae/Dev-Cpp/MinGW64/lib" -L"C:/Users/User/Documents/Curriculum vitae/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Users/User/Documents/Curriculum vitae/Dev-Cpp/MinGW64/include" -I"C:/Users/User/Documents/Curriculum vitae/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Users/User/Documents/Curriculum vitae/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Users/User/Documents/Curriculum vitae/Dev-Cpp/MinGW64/include" -I"C:/Users/User/Documents/Curriculum vitae/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Users/User/Documents/Curriculum vitae/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Users/User/Documents/Curriculum vitae/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = Deliveries.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+MainPolymorphism.o: MainPolymorphism.cpp
+	$(CPP) -c MainPolymorphism.cpp -o MainPolymorphism.o $(CXXFLAGS)
+
+Package.o: Package.cpp
+	$(CPP) -c Package.cpp -o Package.o $(CXXFLAGS)
+
+Shipping.o: Shipping.cpp
+	$(CPP) -c Shipping.cpp -o Shipping.o $(CXXFLAGS)
+
+Envelope.o: Envelope.cpp
+	$(CPP) -c Envelope.cpp -o Envelope.o $(CXXFLAGS)
+
+Package.o: Package.cpp
+	$(CPP) -c Package.cpp -o Package.o $(CXXFLAGS)
